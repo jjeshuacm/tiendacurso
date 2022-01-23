@@ -1,7 +1,7 @@
-import logo from './pintar.png';
-import './App.css';
 import { ItemListContainer } from './components/ItemListContainer';
 import { NavBar } from './components/NavBar/NavBar';
+import logo from './pintar.png';
+import './App.css';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
  
         <NavBar/>
         <ItemListContainer greetings="soy una props" />
+       
        
       
     </div>
