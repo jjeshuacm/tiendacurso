@@ -9,7 +9,7 @@ const ItemList = ({listProducts}) => {
                      (
                        <Item 
                         key={el.id} 
-                        name={el.namep} 
+                        name={el.name} 
                         price={el.price} 
                         category={el.category} 
                         stock={el.stock} 

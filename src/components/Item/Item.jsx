@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Item = ({id, name, stock, category, price}) => {
-    console.log(name, stock, category, price, id);
+    // console.log(name, stock, category, price, id);
   return (
             <>
             <h1>{name}</h1>
