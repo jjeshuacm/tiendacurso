@@ -3,7 +3,7 @@ import products from "./products";
 const getProducts = () => {
 
     return new Promise((resolve,reject)=>{
-        setTimeout(() => resolve(products),2000);
+        setTimeout(() => resolve(products),1000);
 
     });
 

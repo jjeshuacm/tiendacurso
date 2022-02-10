@@ -8,7 +8,7 @@ import itemImg from '../../Item.jpg';
   return (
 
        
-    <Row >
+    <Row className='mt-4' >
         <Col sm={12}>   
             <Card style={{ width: '28rem' }}>
                 <Card.Img variant="top" src={itemImg} />
