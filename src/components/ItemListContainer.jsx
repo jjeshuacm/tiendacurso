@@ -2,38 +2,47 @@ import React, {useState, useEffect} from 'react';
 import { ItemCount } from './ItemCount/ItemCount';
 import ItemList from './ItemList/ItemList';
 import getProducts from '../helpers/getProducts';
+import { useParams } from 'react-router-dom';
+import {  Row, Col } from 'react-bootstrap';
 // import PropTypes from 'prop-types';
 
 export const ItemListContainer = ({greetings = 'no se ha recibido'}) => {
     const [listProducts,setListProducts] = useState([]);
+    const {categoria} = useParams();
 
-    const categoryId = 'Beisbol';
-
+//     const categoria = 'Beisbol';
+//  console.log(categoria);
 
 
     useEffect(()=>{
      getProducts()
      .then((data) => 
         setListProducts(   
-            (categoryId) ?  data.filter(el => el.category === categoryId)  : data     
+            (categoria) ?  data.filter(el => el.category === categoria)  : data     
          )
         )
      .catch((err) => console.log(err));
-    },[])
+    },[categoria])
 
+
+    
     function onAdd(cant){
         console.log(cant);
     }
 
-    return (
-        <section>
-                <ItemList listProducts={listProducts}/>
-                {/* <h1>ItemList</h1> */}
-                <h1>{greetings}</h1>
-               
-                <ItemCount  initial={1} stock={5} onAdd={onAdd}/>
-        </section>
-    )
+    return ( <>
+                    <Row className="mt-4" >
+                        <Col ><h1>{greetings}</h1></Col>
+                    </Row>
+                    <Row className="mt-4">
+                        <ItemList listProducts={listProducts}/>
+                    </Row>
+                    <Row className="mt-4" >
+                        <Col > <ItemCount  initial={1} stock={5} onAdd={onAdd}/></Col>
+                    </Row>
+                         
+            </>    
+    );
 }
 
 // ItemListContainer.prototype = {

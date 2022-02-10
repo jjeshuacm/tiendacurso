@@ -22,13 +22,13 @@ export const ItemCount = ({initial, stock, onAdd}) => {
 
 
     return (
-        <div > 
+        <> 
             <Button variant="outline-primary" onClick={handleIncrease}> + </Button>
-            <Card  border="primary" className="m-3" style={{ width: '10rem',display:'inline-block' }}  body>
+            <Card  border="primary" className="m-3 " style={{ width: '10rem',display:'inline-block' }}  body>
                 {contador}
             </Card>
             <Button variant="outline-primary" onClick={handleDecrease}> - </Button><br/>
             <Button variant="outline-primary" onClick={add}>Agregar</Button>
-        </div>
+        </>
     )
 }

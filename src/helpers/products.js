@@ -34,7 +34,14 @@ const products = [
         name: 'Camiseta PSG',
         price: 270,
         stock: 10,
-        category: 'Football',
+        category: 'Surf',
+    },
+    {
+        id: 6,
+        name: 'Camiseta U',
+        price: 470,
+        stock: 120,
+        category: 'Surf',
     },
 
 

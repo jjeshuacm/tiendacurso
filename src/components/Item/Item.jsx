@@ -1,16 +1,25 @@
 import React from 'react';
-
+import { Card, Button, ListGroup, Col } from 'react-bootstrap';
+import itemImg from '../../Item.jpg'; 
 const Item = ({id, name, stock, category, price}) => {
     // console.log(name, stock, category, price, id);
   return (
-            <>
-            <h1>{name}</h1>
-            <h4>Category: {category}</h4>
-            <h4>Stock: $ {stock}</h4>
-            <h4>Price: {price}</h4>
-         
-            </>
-            
+
+    <Col className="mb-4"> 
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={itemImg} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+              <ListGroup className="m-0" variant="flush">
+                <ListGroup.Item className="p-0">Category: {category}</ListGroup.Item>
+                <ListGroup.Item className="p-0">Stock: $ {stock}</ListGroup.Item>
+                <ListGroup.Item className="p-1">Price: {price}</ListGroup.Item>
+              </ListGroup>
+          <Button variant="primary" href={`/detalles/`+id}>Detalles</Button>
+        </Card.Body>
+      </Card>  
+    </Col> 
+        
             );
 };
 

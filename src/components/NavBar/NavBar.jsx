@@ -14,7 +14,7 @@ import  './nav-bar.css';
         <Navbar collapseOnSelect expand="lg" bg="primary" className='borderColor' variant="dark">
             <Container>
                
-                <Navbar.Brand href="#home">  
+                <Navbar.Brand href="/">  
                      <img src={logo} className='widget'  alt='logo' /> Estampados
                 </Navbar.Brand>
               
@@ -22,20 +22,22 @@ import  './nav-bar.css';
 
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features"></Nav.Link>
-                            <Nav.Link href="#pricing">Galeria</Nav.Link>
-                                <NavDropdown title="Personaliza" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Opcion 0</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Opción 1</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Opción 2</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Opción 3</NavDropdown.Item>
-                                </NavDropdown>
+                           
+                            <Nav.Link href="/">INICIO</Nav.Link>
+
+                            <NavDropdown title="CATEGORIAS" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="/categoria/Football">Football</NavDropdown.Item>
+                                <NavDropdown.Item href="/categoria/Surf">Surf</NavDropdown.Item>
+                               
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/categoria/Beisbol">Beisbol</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Precios</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Contacto
+                            <Nav.Link href="precios">PRECIOS</Nav.Link>
+                           
+                            <Nav.Link eventKey={2} href="contacto">
+                                CONTACTO
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
