@@ -26,9 +26,7 @@ export const ItemListContainer = ({greetings = 'no se ha recibido'}) => {
 
 
     
-    function onAdd(cant){
-        console.log(cant);
-    }
+
 
     return ( <>
                     <Row className="mt-4" >
@@ -37,9 +35,7 @@ export const ItemListContainer = ({greetings = 'no se ha recibido'}) => {
                     <Row className="mt-4">
                         <ItemList listProducts={listProducts}/>
                     </Row>
-                    <Row className="mt-4" >
-                        <Col > <ItemCount  initial={1} stock={5} onAdd={onAdd}/></Col>
-                    </Row>
+               
                          
             </>    
     );

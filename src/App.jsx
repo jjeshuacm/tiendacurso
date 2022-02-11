@@ -4,6 +4,7 @@ import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailCo
 import { NavBar } from './components/NavBar/NavBar';
 import { Container } from 'react-bootstrap';
 import { AuthRouter } from './routers/AuthRouter';
+import { Cart } from './components/Cart/Cart';
 import { PageNotFound } from './components/PageNotFound';
 import './App.css';
 
@@ -30,6 +31,7 @@ function App() {
                         <Route path='/detalles/:iDetalles' element={ <ItemDetailContainer />}  />
                         {/* componente padre para rutas hijas o anidadas, ruta generica API para todos los hijos  */}
                         <Route path='/api/*' element={<AuthRouter/>} />
+                        <Route path='/cart' element={<Cart/>} />
                         {/* cuando el usuario ingresa una ruta incorrecta */}
                         <Route path='*' element={<PageNotFound/>} />
                     </Routes>
