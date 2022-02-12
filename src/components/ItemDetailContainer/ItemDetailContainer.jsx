@@ -2,13 +2,17 @@ import React, {useState, useEffect} from 'react';
 import getProducts from '../../helpers/getProducts';  
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { useCartContext } from '../context/CartContext';
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     const {iDetalles} = useParams();
     // const iDetalles = 1;
   
- console.log(iDetalles);
+  //usar el contexto y usar dos retornos
+  const {cartList} = useCartContext();
+  //     const categoria = 'Beisbol';
+   console.log("intemDetailC",cartList);
   
     useEffect(() => {
         getProducts()
@@ -21,15 +25,7 @@ export const ItemDetailContainer = () => {
     
       return (
         <>
-        {/* {product.name} */}
-        {/* {product.map((item,i) => (
-              <div key={i}> 
-               <div>{item.name}</div>
-               <div>{item.price}</div>
-              </div>
-            ))} */}
           <ItemDetail product={product} />
         </>
-      );
+      )
     };
-// export default ItemDetailContainer;

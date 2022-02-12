@@ -1,8 +1,14 @@
 import React from 'react';
+import { useCartContext } from '../context/CartContext';
 import Item from '../Item/Item';
 
 
 const ItemList = ({listProducts}) => {
+
+       //usar el contexto y usar dos retornos
+       const {cartList} = useCartContext();
+       //     const categoria = 'Beisbol';
+        console.log("itenlist",cartList);
 
     return (<>
 

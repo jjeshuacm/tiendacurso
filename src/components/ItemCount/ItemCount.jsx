@@ -7,16 +7,16 @@ export const ItemCount = ({initial, stock, onAdd}) => {
    
     const handleIncrease = () => {
         if(contador < stock) setcontador(contador + 1);
-        console.log("sumar");
+        // console.log("sumar");
 
     }
     const handleDecrease = () => {
         if(contador > initial) setcontador(contador - 1);
-        console.log("restar");
+        // console.log("restar");
     }
     const add = () => {
         onAdd(contador)
-        console.log("agregar");
+        // console.log("agregar");
     }
 
 

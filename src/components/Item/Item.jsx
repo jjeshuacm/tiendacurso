@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Button, ListGroup, Col } from 'react-bootstrap';
 import itemImg from '../../Item.jpg'; 
 const Item = ({id, name, stock, category, price}) => {
@@ -15,7 +16,13 @@ const Item = ({id, name, stock, category, price}) => {
                 <ListGroup.Item className="p-0">Stock: $ {stock}</ListGroup.Item>
                 <ListGroup.Item className="p-1">Price: {price}</ListGroup.Item>
               </ListGroup>
-          <Button variant="primary" href={`/detalles/`+id}>Detalles</Button>
+
+              <Link to={`detalles/${id}`}>
+           <Button className='detalle'>Detalles</Button>
+           </Link>
+
+
+          {/* <Button variant="primary" href={`/detalles/`+id}>Detalles</Button> */}
         </Card.Body>
       </Card>  
     </Col> 

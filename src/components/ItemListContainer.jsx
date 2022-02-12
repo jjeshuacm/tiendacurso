@@ -4,14 +4,15 @@ import ItemList from './ItemList/ItemList';
 import getProducts from '../helpers/getProducts';
 import { useParams } from 'react-router-dom';
 import {  Row, Col } from 'react-bootstrap';
+
 // import PropTypes from 'prop-types';
 
 export const ItemListContainer = ({greetings = 'no se ha recibido'}) => {
     const [listProducts,setListProducts] = useState([]);
     const {categoria} = useParams();
 
-//     const categoria = 'Beisbol';
-//  console.log(categoria);
+
+
 
 
     useEffect(()=>{

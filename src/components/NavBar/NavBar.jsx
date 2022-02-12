@@ -15,17 +15,22 @@ import  './nav-bar.css';
         <Navbar collapseOnSelect expand="lg" bg="primary" className='borderColor' variant="dark">
             <Container>
                
-                <Navbar.Brand href="/">  
+                <Navbar.Brand >  
+               
                      <img src={logo} className='widget'  alt='logo' /> Estampados
+               
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                    
-                            <Nav.Link href='/'> 
-                                  INICIO
+                       
+                           
+                            <Nav.Link href='/' >  
+                            INICIO
                             </Nav.Link>
+                           
+                         
                             <NavDropdown title="CATEGORIAS" id="collasible-nav-dropdown">
                                 <NavDropdown.Item>
                                     <Link to="/categoria/Football">Football</Link>
@@ -41,9 +46,9 @@ import  './nav-bar.css';
                         </Nav>
                         <Nav>
 
-                            <Nav.Link eventKey={2} href="contacto">
+                            {/* <Nav.Link eventKey={2} href="contacto">
                                 CONTACTO
-                            </Nav.Link>
+                            </Nav.Link> */}
 
                             <NavDropdown title="PERFIL" id="collasible-nav-dropdown">
                                 <NavDropdown.Item >
