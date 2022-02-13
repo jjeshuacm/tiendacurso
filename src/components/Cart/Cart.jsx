@@ -5,7 +5,7 @@ import { Button, Card, ListGroup , Row, Col} from 'react-bootstrap';
 
 export const Cart = () => {
 
-  const { cartList, removeItem, clear } = useCartContext();
+  const { cartList, removeItem, clear, sumTotal } = useCartContext();
 
 
 
@@ -18,18 +18,29 @@ export const Cart = () => {
             <Card style={{ width: '48rem' }}>
                     <ListGroup variant="flush">
 
-                        {cartList.map((ele,i) => (
+                      {cartList.length !== 0 ?  
 
-                            <ListGroup.Item key={i} id={ele.item.id}>
-                            
-                                Nombre:  {ele.item.name} /
-                                Precio: $ {ele.item.price} / Cantidad: {ele.quantity}
-                                <Button  className='mr-2 ml-3'  onClick={() => removeItem(ele.item.id)}>Eliminar Item</Button>
-                            </ListGroup.Item>
-                          )
-                      )}
+                      
+                          <>
+                              {
+                                cartList.map((ele,i) => (
+                                    <ListGroup.Item key={i} id={ele.item.id}>
+                                        Nombre:  {ele.item.name} /
+                                        Precio: $ {ele.item.price} / Cantidad: {ele.quantity} /
+                                        <Button  className='mr-2 ml-3'  onClick={() => removeItem(ele.item.id)}>Eliminar Item</Button>
+                                    </ListGroup.Item>
+                                  ))
+                                }
+                                <div>{`El total es $ ${sumTotal()}`}</div>
+                          </>
+
+                          : <div>No hay productos agregados</div>
+                      
+                      }
+
 
                   </ListGroup>
+                  
             </Card>
         </Col>
     </Row>

@@ -25,7 +25,7 @@ function App() {
                         {/* usar Navigate para redieccionar cuando ingrese el usuario a inicio  */}
                         {/* <Route exac path='/'  element={ <Navigate to="/api/login"/>}  /> */}
                         <Route exact path='/'  element={ <ItemListContainer greetings="Venta de camiseta" />}  />
-                        <Route exact  path='/categoria/:categoria' element={ <ItemListContainer  />}  />
+                        <Route exact  path='/categoria/:categoria' element={ <ItemListContainer greetings="Venta de camiseta"  />}  />
                         <Route exact path='/detalles/:iDetalles' element={ <ItemDetailContainer />}  />
                         {/* componente padre para rutas hijas o anidadas, ruta generica API para todos los hijos  */}
                         <Route exact path='/api/*' element={<AuthRouter/>} />

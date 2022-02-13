@@ -4,11 +4,13 @@ import logo from '../../pintar.png';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { CartWidget } from './CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
-
-
+import { useCartContext } from '../context/CartContext';
 import  './nav-bar.css';
 
  export const NavBar = () => {
+
+    const {cantidad} = useCartContext();
+
     return (
         <>
        
@@ -16,8 +18,14 @@ import  './nav-bar.css';
             <Container>
                
                 <Navbar.Brand >  
-               
-                     <img src={logo} className='widget'  alt='logo' /> Estampados
+                <img
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                    alt="ESTAMPADOS"
+                />
+                   
                
                 </Navbar.Brand>
 
@@ -26,9 +34,13 @@ import  './nav-bar.css';
                         <Nav className="me-auto">
                        
                            
-                            <Nav.Link href='/' >  
-                            INICIO
-                            </Nav.Link>
+                        <Nav.Item>
+                            
+                        <Link to="/" className="text-light enlHref " >INICIO</Link>
+                        </Nav.Item>
+                            
+                           
+                            
                            
                          
                             <NavDropdown title="CATEGORIAS" id="collasible-nav-dropdown">
@@ -67,6 +79,9 @@ import  './nav-bar.css';
                         </Nav>
                       
                     </Navbar.Collapse>
+                    {/* si cantidad es distinta de cero muestra cantidad  */}
+                    <span className="text-white ">{cantidad() !== 0  && cantidad()} Productos</span>
+                     
                     <CartWidget className="widget"/>
             </Container>
         </Navbar>

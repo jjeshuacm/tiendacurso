@@ -30,15 +30,32 @@ console.log("antes",cartList);
         const index = cartList.findIndex(elPro => elPro.item.id === item.item.id);
 
         
-        
+        //-1 no existe en el car list , 0 en adelante si
         if (index !== -1) { 
+            //no existe  sumar cantidad
             cartList[index].quantity = item.quantity + cartList[index].quantity;
-            setCartList(cartList);
+            //apuntaban al mismo espacio de memoria , se debe crear un nuevo array
+            const newCartList = [...cartList]
+            setCartList(newCartList);
          } else {
+             //si existe
             setCartList( [ ...cartList, item ]);
          }       
 
    
+    }
+  //acumulador inicia en 0 //suma total de precios
+        //aplicar acu a cada elmento del array
+        //TOTAL GENERAL
+    const sumTotal = () => {
+    
+        return cartList.reduce((acum,prod)=> acum= acum +( prod.item.price * prod.quantity) ,0)
+
+    }
+
+    //total cantidad de productos en el carrito
+    const cantidad = () => {
+        return cartList.reduce((acum,prod)=> acum+=  prod.quantity ,0)
     }
 
     const removeItem = (id) => { setCartList(cartList.filter( el => el.item.id !== id))  }
@@ -55,7 +72,9 @@ console.log("antes",cartList);
                 cartList, 
                 addItem,
                 removeItem,
-                clear 
+                clear,
+                sumTotal,
+                cantidad
                }}>
                {children}
         </cartContext.Provider>

@@ -41,18 +41,19 @@ import { useCartContext } from '../context/CartContext';
                 <Card.Title>{name}</Card.Title>
                     <ListGroup className="m-0" variant="flush">
                         <ListGroup.Item className="p-0">Category: {category}</ListGroup.Item>
-                        <ListGroup.Item className="p-0">Stock: $ {stock}</ListGroup.Item>
-                        <ListGroup.Item className="p-1">Price: {price}</ListGroup.Item>
+                        <ListGroup.Item className="p-0">Stock:  {stock}</ListGroup.Item>
+                        <ListGroup.Item className="p-1">Price: $ {price}</ListGroup.Item>
                     </ListGroup>
                     
                     {contador === 0 ?  
                     <ItemCount  initial={1} stock={5} onAdd={onAdd}/> : 
                             <>
+                            <ItemCount  initial={1} stock={5} onAdd={onAdd}/><br/>
                             <Link to="/cart">
-                                <Button className='mr-2'>Terminar Compra</Button>
+                                <Button className='mr-2 mt-2 '>Terminar Compra</Button>
                             </Link>
                             <Link to="/">
-                                <Button className='ml-2' >Seguir Comprando</Button>
+                                <Button className='ml-2  mt-2 ' >Ver más </Button>
                             </Link>
                             </>
                      }
