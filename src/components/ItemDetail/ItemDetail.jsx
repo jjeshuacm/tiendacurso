@@ -5,8 +5,9 @@ import itemImg from '../../Item.jpg';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 
- const ItemDetail = (product) => {
 
+ const ItemDetail = (product) => {
+    console.log(product);
     const [contador, setContador] = useState(0);
 
     //usar el contexto y usar dos retornos
@@ -15,7 +16,7 @@ import { useCartContext } from '../context/CartContext';
 
 
      console.log("recibodetail",cartList);
-    const { name, category, stock, price } = product.product;
+    const { name, category, stock, price, imagenUrl } = product.product;
 
 
 
@@ -36,7 +37,12 @@ import { useCartContext } from '../context/CartContext';
     <Row className='mt-4' >
         <Col sm={12}>   
             <Card style={{ width: '28rem' }}>
-                <Card.Img variant="top" src={itemImg} />
+
+                <Card.Img variant="top" src={imagenUrl} />
+
+
+               
+
                 <Card.Body>
                 <Card.Title>{name}</Card.Title>
                     <ListGroup className="m-0" variant="flush">
