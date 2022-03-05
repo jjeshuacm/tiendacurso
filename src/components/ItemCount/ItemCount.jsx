@@ -31,7 +31,10 @@ export const ItemCount = ({initial, stock, onAdd}) => {
                 
             </Card>
             <Button variant="outline-primary" className="pt-0  pb-0" onClick={handleDecrease}> - </Button><br/>
-            <Button variant="outline-primary" onClick={add}>Agregar</Button>
+            <Button variant="outline-primary btn-purple" onClick={add}>Agregar</Button>
+
+
+         
         </>
     )
 }

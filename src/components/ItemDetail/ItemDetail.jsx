@@ -33,7 +33,12 @@ import { useCartContext } from '../context/CartContext';
  
   return (
 
-       
+    <>
+    
+    <Row className=" mb-4 header-background"  >
+                    <Col ><h1 className="font-link text-white">Detalle: {category} / {name}</h1></Col>
+                </Row>
+     
     <Row className='mt-4' >
         <Col sm={12}>   
             <Card style={{ width: '28rem' }}>
@@ -56,10 +61,10 @@ import { useCartContext } from '../context/CartContext';
                             <>
                             <ItemCount  initial={1} stock={5} onAdd={onAdd}/><br/>
                             <Link to="/cart">
-                                <Button className='mr-2 mt-2 '>Terminar Compra</Button>
+                                <Button className='mr-2 mt-2  btn-purple'>Terminar Compra</Button>
                             </Link>
                             <Link to="/">
-                                <Button className='ml-2  mt-2 ' >Ver más </Button>
+                                <Button className='ml-2  mt-2  btn-purple' >Ver más </Button>
                             </Link>
                             </>
                      }
@@ -70,7 +75,7 @@ import { useCartContext } from '../context/CartContext';
             </Card> 
           </Col>
     </Row>  
-         
+    </>      
   
      );
     };

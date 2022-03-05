@@ -3,8 +3,10 @@ import logo from '../../../carr.png';
 
 export const CartWidget = () => {
     return (
-        <>
-            <img src={logo} className='widget'  alt='logo' />
+        <>  
+
+            <i className="bi bi-basket text-white"></i>
+            {/* <img src={logo} className='widget'  alt='logo' /> */}
         </>
     )
 }

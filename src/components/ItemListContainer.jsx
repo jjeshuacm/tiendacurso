@@ -3,7 +3,7 @@ import { ItemCount } from './ItemCount/ItemCount';
 import ItemList from './ItemList/ItemList';
 import getProducts from '../helpers/getProducts';
 import { useParams } from 'react-router-dom';
-import {  Row, Col } from 'react-bootstrap';
+import {  Row, Col, Spinner } from 'react-bootstrap';
 import {getFirestore , collection, getDocs , query, where} from 'firebase/firestore';
 
 // import PropTypes from 'prop-types';
@@ -55,16 +55,24 @@ export const ItemListContainer = ({greetings = 'no se ha recibido'}) => {
 
     // console.log(listProducts);
     if(loading) {
-        return (<><h2>Cargando página...</h2></>);
+        return (<Row className="pt-2 mb-4 header-background">
+                    <Col >
+                        <h2 className='font-link  text-white'>Cargando página...  
+                        <Spinner animation="border" variant="light" />
+                        
+                        </h2>
+                    </Col>
+                </Row>
+            );
     }else{
         return (
             <> 
-                <Row className="mt-4" >
-                    <Col ><h1>{greetings}</h1></Col>
+                <Row className=" mb-4 header-background"  >
+                    <Col ><h1 className="font-link text-white">{greetings}</h1></Col>
                 </Row>
-                <Row className="mt-4">
-                    <ItemList listProducts={listProducts}/>
-                </Row>
+                <div className=" gallery">
+                    <ItemList  listProducts={listProducts}/>
+                </div>
             </>    
         );
     }

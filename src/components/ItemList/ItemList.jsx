@@ -1,14 +1,14 @@
 import React from 'react';
-import { useCartContext } from '../context/CartContext';
+// import { useCartContext } from '../context/CartContext';
 import Item from '../Item/Item';
 
 
 const ItemList = ({listProducts}) => {
 
        //usar el contexto y usar dos retornos
-       const {cartList} = useCartContext();
+      //  const {cartList} = useCartContext();
        //     const categoria = 'Beisbol';
-        console.log("itenlist",cartList);
+        // console.log("itenlist",cartList);
 
     return (<>
 
@@ -17,7 +17,7 @@ const ItemList = ({listProducts}) => {
               {    
                 listProducts.map((el) =>  
                      (
-                       <Item 
+                       <Item  
                         key={el.id} 
                         imagenUrl={el.imagenUrl}
                         name={el.name} 

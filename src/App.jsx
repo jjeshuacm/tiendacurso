@@ -7,6 +7,7 @@ import { AuthRouter } from './routers/AuthRouter';
 import { Cart } from './components/Cart/Cart';
 import { PageNotFound } from './components/PageNotFound';
 import  CartContextProvider  from './components/context/CartContext';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 
 
@@ -20,12 +21,12 @@ function App() {
       <CartContextProvider>
         <div className="App">
             <NavBar/>
-            <Container >
+            <Container fluid >
                     <Routes>
                         {/* usar Navigate para redieccionar cuando ingrese el usuario a inicio  */}
                         {/* <Route exac path='/'  element={ <Navigate to="/api/login"/>}  /> */}
-                        <Route exact path='/'  element={ <ItemListContainer greetings="Venta de camiseta" />}  />
-                        <Route exact  path='/categoria/:categoria' element={ <ItemListContainer greetings="Venta de camiseta"  />}  />
+                        <Route exact path='/'  element={ <ItemListContainer greetings="Diseños" />}  />
+                        <Route exact  path='/categoria/:categoria' element={ <ItemListContainer greetings="Diseños"  />}  />
                         <Route exact path='/detalles/:iDetalles' element={ <ItemDetailContainer />}  />
                         {/* componente padre para rutas hijas o anidadas, ruta generica API para todos los hijos  */}
                         <Route exact path='/api/*' element={<AuthRouter/>} />
