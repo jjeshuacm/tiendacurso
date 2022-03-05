@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import { Button, Card, ListGroup , Row, Col, Form, Alert} from 'react-bootstrap';
-import {getFirestore, collection,getDocs, addDoc,doc, updateDoc, where, documentId, query, writeBatch} from 'firebase/firestore';
+import {getFirestore, collection,getDocs,getDoc, addDoc,doc, updateDoc, where, documentId, query, writeBatch} from 'firebase/firestore';
 
 export const Cart = () => {
 
@@ -21,6 +21,7 @@ export const Cart = () => {
   // });
 
   const [ordenfine,setOrdenFine] = useState(false);
+  const [ordenpreview,setOrdenPreview] = useState({});
  
   const [ordenid,setOrdenId] = useState("");
 
@@ -80,14 +81,29 @@ export const Cart = () => {
       //CREAR DOCUMENTO SI EXISTEN ITEMS Y OBTENER EL ID
       if(orden.total !== 0){
         const newOrden = await addDoc(ordersCollection, orden);
-       
+       //numero de documento
         setOrdenId(newOrden.id);
+        setOrdenPreview(orden);
+
+        //obtener la orden creada reciente 
+//         const itemRef = doc(db,'orders','D8eST4rodOwoKle14Aku');
+//         getDoc(itemRef)
+//         .then(resp => setOrdenPreview({id: resp.id, ...resp.data()}))
+//         .catch((err) => console.log(err));
+
+
+//         console.log(ordenpreview);
+// console.log(orden);
+// console.log(itemRef);
      
       }else{
         throw new SyntaxError("no se creo el documento");
        
       }
      
+
+   
+    
 
 
         //ACTUALIZAR DOCUMENTOS UNO SOLO 
@@ -104,6 +120,7 @@ export const Cart = () => {
          queryCollection, 
          where(documentId(),'in',cartList.map(it =>it.item.id))
        )
+       console.log()
     
       //RESTAR DEL STOCK POR NUMERO DE ID
        const batch = writeBatch(db);
@@ -295,15 +312,45 @@ export const Cart = () => {
                     <Col ><h1 className="font-link text-white">Orden Finalizada</h1></Col>
                 </Row>
                 <Alert  variant="success">
-                       Compra exitosa. Numero de orden: {ordenid}            
+                       Compra exitosa. Numero de orden: {ordenid}   
+
+                   
                 </Alert>
+                <Row>
+                  <Col lg="6">
+                      <Card.Body>Total:  {`${ordenpreview.total}  `   } 
+                              
+                          {ordenpreview.items.map((ele,i) => (
+                              <ListGroup.Item key={i} id={ele.id}>
+                                      {/* <img className="img-or"   src={ele.imagenUrl} alt={ele.name}  title={ele.name}/> */}
+                                      Nombre:  {ele.nombre} /
+                                      Precio: $ {ele.precio} 
+                                    
+                              </ListGroup.Item>
+                            ))
+                          }
+                    </Card.Body>  
+                  </Col>
+                  <Col lg="6">
+                      <Card.Body>Detalle de Orden:  {`${ordenpreview.estado} / Fecha:  ${ordenpreview.fecha} `   } 
+                              
+                              <ListGroup variant="flush">
+                                <ListGroup.Item>Email: {ordenpreview.buyer.email}</ListGroup.Item>
+                                <ListGroup.Item>Nombre: {`${ordenpreview.buyer.name} ${ordenpreview.buyer.lastname} `   }</ListGroup.Item>
+                                <ListGroup.Item> Teléfono: {ordenpreview.buyer.phone}</ListGroup.Item>
+                              </ListGroup>
+                    </Card.Body>  
+                  </Col>
+                </Row>
+                  
                 <Card>
-                    <Card.Body>Seguir Comprando:
+                    <Card.Body>Seguir Comprando:    
                             <Link to="/">
                                   <Button className='ml-2    btn-purple' >vamos... </Button>
                               </Link>
                     </Card.Body>
                   </Card>
+
               </>
           } 
         </>
